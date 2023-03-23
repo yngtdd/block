@@ -24,7 +24,7 @@ export default defineConfig(async () => ({
   // import { Component } from '@/root/components/Component'
   resolve: {
     alias: {
-      '@root': path.resolve(__dirname, ''),
+      '@root': path.resolve(__dirname, 'src', ''),
     },
   },
   // to make use of `TAURI_DEBUG` and other env variables

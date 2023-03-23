@@ -1,6 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/tauri";
+import  MyButton  from './components/MyButton'
 import "./App.css";
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
           />
           <button type="submit">Greet</button>
         </form>
+      </div>
+      <div>
+        <MyButton />
       </div>
       <p>{greetMsg}</p>
     </div>
