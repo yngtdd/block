@@ -18,6 +18,7 @@ import ReactFlow, {
 
 import Sidebar from '../Sidebar';
 import 'reactflow/dist/style.css';
+import MyCard from '../MyCard';
 
 const proOptions: ProOptions = { account: 'paid-pro', hideAttribution: true };
 const defaultNodes: Node[] = [];
@@ -44,7 +45,7 @@ export default function ReactFlowPro() {
       selectNodesOnDrag={false}
     >
       <Panel position="top-left">
-        <Sidebar />
+        <MyCard />
       </Panel>
       <Background />
       <Controls />

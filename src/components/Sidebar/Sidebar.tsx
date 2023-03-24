@@ -10,7 +10,6 @@ const onDragStart = (event: DragEvent, nodeType: string) => {
 export default function Sidebar() {
   return (
     <aside className={styles.aside}>
-      <div className={styles.description}>You can drag these nodes to the pane on the left.</div>
       <div className="react-flow__node-input" onDragStart={(event: DragEvent) => onDragStart(event, 'input')} draggable>
         Input Node
       </div>
