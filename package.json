@@ -10,10 +10,18 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.14",
+    "@reactflow/node-resizer": "^2.1.0",
     "@tauri-apps/api": "^1.2.0",
+    "install": "^0.13.0",
+    "npm": "^9.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-flow": "^1.0.3"
+    "react-flow": "^1.0.3",
+    "react-split": "^2.0.14",
+    "reactflow": "^11.6.1"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.2.2",
