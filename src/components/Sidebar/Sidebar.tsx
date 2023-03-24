@@ -1,6 +1,6 @@
 import { DragEvent } from 'react';
 
-import styles from './dnd.module.css';
+import styles from './styles.module.css';
 
 const onDragStart = (event: DragEvent, nodeType: string) => {
   event.dataTransfer.setData('application/reactflow', nodeType);

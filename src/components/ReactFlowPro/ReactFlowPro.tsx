@@ -4,6 +4,7 @@ import React, { CSSProperties, useCallback } from 'react';
 import ReactFlow, {
   Background,
   Panel,
+  MiniMap,
   useNodesState,
   useEdgesState,
   addEdge,
@@ -23,6 +24,7 @@ import ReactFlow, {
 
 import { Button } from '@mui/material';
 import useUndoRedo from './useUndoRedo';
+import Sidebar from '../Sidebar';
 import 'reactflow/dist/style.css';
 import styles from './styles.module.css';
 const nodeLabels: string[] = ['Wire', 'your', 'ideas', 'with', 'React', 'Flow', '!'];
@@ -109,6 +111,7 @@ export default function ReactFlowPro() {
     >
       <Background />
       <Controls />
+      <Sidebar />
       <Panel position="top-center">
         <div className={styles.buttonGroup}>
           <button disabled={canUndo} className={styles.button} onClick={undo}>
@@ -121,6 +124,7 @@ export default function ReactFlowPro() {
         </div>
       </Panel>
       {!nodes.length && <div className={styles.instructions}>Click anywhere on the pane to add nodes</div>}
+      <MiniMap />
     </ReactFlow>
   );
 }
