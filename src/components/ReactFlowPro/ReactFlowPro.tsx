@@ -20,7 +20,7 @@ import ReactFlow, {
 import Sidebar from '../Sidebar';
 import 'reactflow/dist/style.css';
 
-//const proOptions: ProOptions = { account: 'paid-pro', hideAttribution: true };
+const proOptions: ProOptions = { account: 'paid-pro', hideAttribution: true };
 
 const initialNodes: Node[] = [
   {
@@ -59,11 +59,11 @@ export default function ReactFlowPro() {
   const onDrop = (event: DragEvent) => {
     event.preventDefault();
 
-    if (reactFlowInstance) {
+   if (reactFlowInstance) {
       const type = event.dataTransfer.getData('application/reactflow');
       const position = reactFlowInstance.project({
         x: event.clientX,
-        y: event.clientY - 40,
+        y: event.clientY - 10,
       });
       const newNode: Node = {
         id: getId(),
@@ -74,13 +74,12 @@ export default function ReactFlowPro() {
 
       setNodes((nds) => nds.concat(newNode));
       console.log("Added new node");
-    }
+   }
   };
 
   return (
     <div style={{ height: '90vh' }}>
     <ReactFlowProvider>
-    <div style={{ height: '90vh' }}>
     <ReactFlow
       nodes={nodes}
       edges={edges}
@@ -91,6 +90,7 @@ export default function ReactFlowPro() {
       onDrop={onDrop}
       onDragOver={onDragOver}
       nodeOrigin={nodeOrigin}
+      proOptions={proOptions}
     >
      <Panel position="top-left">
        <Sidebar />
@@ -99,7 +99,6 @@ export default function ReactFlowPro() {
       <Controls />
       <MiniMap />
     </ReactFlow>
-    </div>
     </ReactFlowProvider>
     </div>
   );
