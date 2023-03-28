@@ -1,56 +1,107 @@
-// This example shows how to implement a simple undo and redo functionality for a React Flow graph.
-import React, { CSSProperties, useCallback } from 'react';
+import { useState, DragEvent } from 'react';
 
 import ReactFlow, {
+  addEdge,
+  ReactFlowProvider,
   Background,
   MiniMap,
   Panel,
   useNodesState,
   useEdgesState,
   Controls,
-  useReactFlow,
+  Connection,
   NodeOrigin,
   Node,
   Edge,
-  DefaultEdgeOptions,
   ProOptions,
+  ReactFlowInstance,
 } from 'reactflow';
 
 import Sidebar from '../Sidebar';
 import 'reactflow/dist/style.css';
-import MyCard from '../MyCard';
 
-const proOptions: ProOptions = { account: 'paid-pro', hideAttribution: true };
-const defaultNodes: Node[] = [];
-const defaultEdges: Edge[] = [];
-const defaultEdgeOptions: DefaultEdgeOptions = { style: { strokeWidth: 3, stroke: '#ff0071' } };
-const connectionLineStyle: CSSProperties = { strokeWidth: 2, stroke: '#ff99c7' };
-const nodeOrigin: NodeOrigin = [0.0, 0.0];
+//const proOptions: ProOptions = { account: 'paid-pro', hideAttribution: true };
+
+const initialNodes: Node[] = [
+  {
+    id: '1',
+    type: 'input',
+    data: { label: 'input node' },
+    position: { x: 500, y: 40 },
+  },
+  {
+    id: '2',
+    type: 'default',
+    data: { label: 'default node' },
+    position: { x: 600, y: 100 },
+  },
+];
+
+const onDragOver = (event: DragEvent) => {
+  event.preventDefault();
+  event.dataTransfer.dropEffect = 'move';
+  console.log("Drag over")
+};
+
+let id = 0;
+const getId = () => `dndnode_${id++}`;
+
+const nodeOrigin: NodeOrigin = [0.5, 0.5];
 
 export default function ReactFlowPro() {
-  const [nodes, , onNodesChange] = useNodesState(defaultNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(defaultEdges);
-  const { project, addNodes } = useReactFlow();
+  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance>();
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+
+  const onConnect = (params: Connection | Edge) => setEdges((eds) => addEdge(params, eds));
+  const onInit = (rfi: ReactFlowInstance) => setReactFlowInstance(rfi);
+
+  const onDrop = (event: DragEvent) => {
+    event.preventDefault();
+
+    if (reactFlowInstance) {
+      const type = event.dataTransfer.getData('application/reactflow');
+      const position = reactFlowInstance.project({
+        x: event.clientX,
+        y: event.clientY - 40,
+      });
+      const newNode: Node = {
+        id: getId(),
+        type,
+        position,
+        data: { label: `${type} node` },
+      };
+
+      setNodes((nds) => nds.concat(newNode));
+      console.log("Added new node");
+    }
+  };
 
   return (
+    <div style={{ height: '90vh' }}>
+    <ReactFlowProvider>
+    <div style={{ height: '90vh' }}>
     <ReactFlow
       nodes={nodes}
       edges={edges}
-      onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
-      proOptions={proOptions}
-      defaultEdgeOptions={defaultEdgeOptions}
+      onNodesChange={onNodesChange}
+      onConnect={onConnect}
+      onInit={onInit}
+      onDrop={onDrop}
+      onDragOver={onDragOver}
       nodeOrigin={nodeOrigin}
-      connectionLineStyle={connectionLineStyle}
-      selectNodesOnDrag={false}
     >
       <Panel position="top-left">
-        <MyCard />
+        <Sidebar />
       </Panel>
       <Background />
       <Controls />
       <MiniMap />
     </ReactFlow>
+    </div>
+    </ReactFlowProvider>
+    </div>
   );
 }
 

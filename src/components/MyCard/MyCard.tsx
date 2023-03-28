@@ -9,7 +9,7 @@ import Sidebar from '../Sidebar';
 
 const card = (
   <React.Fragment>
-    <CardContent>
+    <CardContent sx={{ flex: '1 0 auto' }}>
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
         Select a Node
       </Typography>
@@ -23,7 +23,7 @@ const card = (
 
 export default function OutlinedCard() {
   return (
-    <Box> 
+    <Box sx={{ minWidth: 250 }}>
       <Card variant="outlined">{card}</Card>
     </Box>
   );
