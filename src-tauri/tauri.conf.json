@@ -39,6 +39,7 @@
     "windows": [
       {
         "fullscreen": false,
+        "fileDropEnabled": false,
         "resizable": true,
         "title": "block",
         "width": 800,

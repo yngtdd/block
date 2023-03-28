@@ -46,7 +46,7 @@ const onDragOver = (event: DragEvent) => {
 let id = 0;
 const getId = () => `dndnode_${id++}`;
 
-const nodeOrigin: NodeOrigin = [0.5, 0.5];
+const nodeOrigin: NodeOrigin = [0.0, 0.0];
 
 export default function ReactFlowPro() {
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance>();
@@ -64,7 +64,7 @@ export default function ReactFlowPro() {
       const type = event.dataTransfer.getData('application/reactflow');
       const position = reactFlowInstance.project({
         x: event.clientX,
-        y: event.clientY - 10,
+        y: event.clientY,
       });
       const newNode: Node = {
         id: getId(),
