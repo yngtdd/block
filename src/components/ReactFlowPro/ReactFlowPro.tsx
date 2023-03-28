@@ -92,9 +92,9 @@ export default function ReactFlowPro() {
       onDragOver={onDragOver}
       nodeOrigin={nodeOrigin}
     >
-      <Panel position="top-left">
-        <Sidebar />
-      </Panel>
+     <Panel position="top-left">
+       <Sidebar />
+     </Panel>
       <Background />
       <Controls />
       <MiniMap />
