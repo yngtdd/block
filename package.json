@@ -23,7 +23,8 @@
     "react-dom": "^18.2.0",
     "react-flow": "^1.0.3",
     "react-split": "^2.0.14",
-    "reactflow": "^11.6.1"
+    "reactflow": "^11.6.1",
+    "tauri-plugin-log-api": "github:tauri-apps/tauri-plugin-log"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.2.2",

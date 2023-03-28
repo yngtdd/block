@@ -1,4 +1,5 @@
 import { useState, DragEvent } from 'react';
+import { trace, info, error, attachConsole } from "tauri-plugin-log-api";
 
 import ReactFlow, {
   addEdge,
@@ -40,7 +41,6 @@ const initialNodes: Node[] = [
 const onDragOver = (event: DragEvent) => {
   event.preventDefault();
   event.dataTransfer.dropEffect = 'move';
-  console.log("Drag over")
 };
 
 let id = 0;
@@ -60,6 +60,7 @@ export default function ReactFlowPro() {
     event.preventDefault();
 
    if (reactFlowInstance) {
+      trace("In react flow instance")
       const type = event.dataTransfer.getData('application/reactflow');
       const position = reactFlowInstance.project({
         x: event.clientX,
@@ -72,8 +73,8 @@ export default function ReactFlowPro() {
         data: { label: `${type} node` },
       };
 
-      setNodes((nds) => nds.concat(newNode));
-      console.log("Added new node");
+      setNodes((nodes) => nodes.concat(newNode));
+      info("Added new node");
    }
   };
 
