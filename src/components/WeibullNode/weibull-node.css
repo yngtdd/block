@@ -1,0 +1,13 @@
+.weibull-node {
+  height: 200px;
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 5px;
+  background: white;
+}
+
+.weibull-node {
+  display: block;
+  color: #ff0071;
+}
+
