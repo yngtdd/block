@@ -1,5 +1,5 @@
 import { useState, DragEvent } from 'react';
-import { trace, info, error, attachConsole } from "tauri-plugin-log-api";
+import { trace, info } from "tauri-plugin-log-api";
 
 import ReactFlow, {
   addEdge,
@@ -19,9 +19,15 @@ import ReactFlow, {
 } from 'reactflow';
 
 import Sidebar from '../Sidebar';
+import ColorNode from '../ColorNode';
 import 'reactflow/dist/style.css';
 
+const initBgColor = '#1A192B';
 const proOptions: ProOptions = { account: 'paid-pro', hideAttribution: true };
+
+const nodeTypes = {
+  selectorNode: ColorNode,
+};
 
 const initialNodes: Node[] = [
   {
@@ -36,6 +42,13 @@ const initialNodes: Node[] = [
     data: { label: 'default node' },
     position: { x: 600, y: 100 },
   },
+  {
+  id: '3',
+  type: 'selectorNode',
+  data: { color: initBgColor },
+  style: { border: '1px solid #777', padding: 10 },
+  position: { x: 250, y: 50 },
+},
 ];
 
 const onDragOver = (event: DragEvent) => {
@@ -90,6 +103,7 @@ export default function ReactFlowPro() {
       onInit={onInit}
       onDrop={onDrop}
       onDragOver={onDragOver}
+      nodeTypes={nodeTypes}
       nodeOrigin={nodeOrigin}
       proOptions={proOptions}
     >
