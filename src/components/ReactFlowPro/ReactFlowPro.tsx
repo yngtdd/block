@@ -20,13 +20,14 @@ import ReactFlow, {
 
 import Sidebar from '../Sidebar';
 import ColorNode from '../ColorNode';
+import WeibullNode from '../WeibullNode';
 import 'reactflow/dist/style.css';
 
-const initBgColor = '#1A192B';
 const proOptions: ProOptions = { account: 'paid-pro', hideAttribution: true };
 
 const nodeTypes = {
   selectorNode: ColorNode,
+  weibullNode: WeibullNode
 };
 
 const initialNodes: Node[] = [
@@ -45,9 +46,16 @@ const initialNodes: Node[] = [
   {
   id: '3',
   type: 'selectorNode',
-  data: { color: initBgColor },
+  data: { label: 'Weibull node'},
   style: { border: '1px solid #777', padding: 10 },
   position: { x: 250, y: 50 },
+},
+  {
+  id: '4',
+  type: 'weibullNode',
+  data: { label: 'Weibull Node' },
+  style: { border: '1px solid #777', padding: 10 },
+  position: { x: 300, y: 75 },
 },
 ];
 
