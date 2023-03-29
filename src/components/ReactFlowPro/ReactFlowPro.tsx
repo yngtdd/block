@@ -44,19 +44,12 @@ const initialNodes: Node[] = [
     position: { x: 600, y: 100 },
   },
   {
-  id: '3',
-  type: 'selectorNode',
-  data: { label: 'Weibull node'},
-  style: { border: '1px solid #777', padding: 10 },
-  position: { x: 250, y: 50 },
-},
-  {
-  id: '4',
-  type: 'weibullNode',
-  data: { label: 'Weibull Node' },
-  style: { border: '1px solid #777', padding: 10 },
-  position: { x: 300, y: 75 },
-},
+    id: '4',
+    type: 'weibullNode',
+    data: { label: 'Weibull Node' },
+    style: { border: '1px solid #777', padding: 10 },
+    position: { x: 300, y: 75 },
+  },
 ];
 
 const onDragOver = (event: DragEvent) => {

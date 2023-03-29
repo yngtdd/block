@@ -3,6 +3,7 @@ import { Handle, Position, NodeProps, Connection, Edge, useOnViewportChange, Vie
 import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import './weibull-node.css';
 
 const targetHandleStyle: CSSProperties = { background: '#edebeb' };
 const sourceHandleStyleA: CSSProperties = { ...targetHandleStyle, top: 10 };
@@ -21,7 +22,7 @@ const WeibullNode: FC<NodeProps> = ({ data, isConnectable }) => {
   });
 
   return (
-    <div>
+    <div className="weibull-node">
       <Handle type="target" position={Position.Top} style={targetHandleStyle} onConnect={onConnect} />
       <Typography variant="subtitle1" gutterBottom>
         Weibull Component
@@ -31,19 +32,19 @@ const WeibullNode: FC<NodeProps> = ({ data, isConnectable }) => {
         sx={{
           width: '25ch',
         }}
-        spacing={1}
+        spacing={2}
         noValidate
         autoComplete="off"
       >
       <TextField
         id="weibull-shape"
-        label="Weibull Shape"
+        label="Shape"
         defaultValue="200"
         size="small"
       />
       <TextField
         id="weibull-scale"
-        label="Weibull Scale"
+        label="Scale"
         defaultValue="0.5"
         size="small"
       />
