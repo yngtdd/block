@@ -47,7 +47,6 @@ const initialNodes: Node[] = [
     id: '4',
     type: 'weibullNode',
     data: { label: 'Weibull Node' },
-    style: { border: '1px solid #777', padding: 10 },
     position: { x: 300, y: 75 },
   },
 ];

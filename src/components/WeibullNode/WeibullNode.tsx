@@ -20,13 +20,12 @@ const WeibullNode: FC<NodeProps> = ({ data, isConnectable }) => {
   });
 
   return (
-    <div className="px-4 py-2 shadow-md rounded-md bg-white border-2 border-stone-400">
+    <div className="px-4 py-2 shadow-lg rounded-md bg-white border-2 border-stone-400 hover:border-red-300">
 
-      <Typography variant="subtitle1" gutterBottom>
-        Weibull Component
-      </Typography>
+        <Typography variant="subtitle1" gutterBottom>
+          Weibull Component
+        </Typography>
 
-      <div>
         <Stack
           component="form"
           sx={{
@@ -48,12 +47,17 @@ const WeibullNode: FC<NodeProps> = ({ data, isConnectable }) => {
             defaultValue="0.5"
             size="small"
           />
-
-          <Handle type="target" position={Position.Top} className="w-16 !bg-teal-400" />
-          <Handle type="source" position={Position.Bottom} className="w-16 !bg-teal-400" />
-
+          <TextField
+            id="time-steps"
+            label="Time Steps"
+            defaultValue="10_000"
+            size="small"
+            helperText="Number of time steps for Weibull curve"
+          />
         </Stack>
-      </div>
+
+        <Handle type="target" position={Position.Top} className="h-3 w-3 !bg-stone-400 hover:!bg-red-300" />
+        <Handle type="source" position={Position.Bottom} className="h-3 w-3 !bg-stone-400 hover:!bg-red-300" />
 
     </div>
   );
