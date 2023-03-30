@@ -28,6 +28,7 @@
     "tauri-plugin-log-api": "github:tauri-apps/tauri-plugin-log"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
     "@tauri-apps/cli": "^1.2.2",
     "@types/node": "^18.7.10",
     "@types/react": "^18.0.15",

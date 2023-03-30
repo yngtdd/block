@@ -21,10 +21,10 @@ const WeibullNode: FC<NodeProps> = ({ data, isConnectable }) => {
 
   return (
     <div className="px-4 py-2 shadow-lg rounded-md bg-white border-2 border-stone-400 hover:border-red-300">
-
-        <Typography variant="subtitle1" gutterBottom>
-          Weibull Component
-        </Typography>
+      <article class="prose prose-stone">
+        <h4>Weibull Component</h4>
+        <p></p>
+      </article>
 
         <Stack
           component="form"
@@ -52,7 +52,7 @@ const WeibullNode: FC<NodeProps> = ({ data, isConnectable }) => {
             label="Time Steps"
             defaultValue="10_000"
             size="small"
-            helperText="Number of time steps for Weibull curve"
+            helperText="Time steps for Weibull curve"
           />
         </Stack>
 

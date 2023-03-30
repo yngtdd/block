@@ -4,11 +4,11 @@ import Split from 'react-split'
 import App from "./App";
 import {Button} from "@mui/material"
 import "./index.css";
-//import "./styles.css";
+import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Split direction="vertical" style={{ height: '50vw' }}> 
+    <Split className="border-stone-400" direction="vertical" style={{ height: '50vw' }}> 
       <div>
          <Button variant="contained"> Redo</Button>
       </div>
