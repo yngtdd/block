@@ -21,7 +21,7 @@ const WeibullNode: FC<NodeProps> = ({ data, isConnectable }) => {
 
   return (
     <div className="px-4 py-2 shadow-lg rounded-md bg-white border-2 border-stone-400 hover:border-red-300">
-      <article class="prose prose-stone">
+      <article className="prose prose-stone">
         <h4>Weibull Component</h4>
         <p></p>
       </article>
