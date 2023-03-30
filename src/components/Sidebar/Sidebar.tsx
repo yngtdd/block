@@ -1,4 +1,6 @@
-import React, { DragEvent } from 'react';
+import { DragEvent } from 'react';
+
+import styles from './styles.module.css';
 
 const onDragStart = (event: DragEvent, nodeType: string) => {
   event.dataTransfer.setData('application/reactflow', nodeType);
@@ -7,8 +9,7 @@ const onDragStart = (event: DragEvent, nodeType: string) => {
 
 export default function Sidebar() {
   return (
-    <aside>
-      <div className="description">You can drag these nodes to the pane on the right.</div>
+    <aside className={styles.aside}>
       <div className="react-flow__node-input" onDragStart={(event: DragEvent) => onDragStart(event, 'input')} draggable>
         Input Node
       </div>

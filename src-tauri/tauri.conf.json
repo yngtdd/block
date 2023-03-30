@@ -27,7 +27,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "block",
       "targets": "all"
     },
     "security": {
@@ -39,6 +39,7 @@
     "windows": [
       {
         "fullscreen": false,
+        "fileDropEnabled": false,
         "resizable": true,
         "title": "block",
         "width": 800,
