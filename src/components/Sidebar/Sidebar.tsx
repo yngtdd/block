@@ -1,6 +1,11 @@
 import { DragEvent } from 'react';
+import WeibullNode from '../WeibullNode';
 
 import styles from './styles.module.css';
+
+const nodeTypes = {
+  weibullNode: WeibullNode
+};
 
 const onDragStart = (event: DragEvent, nodeType: string) => {
   event.dataTransfer.setData('application/reactflow', nodeType);
@@ -15,10 +20,10 @@ export default function Sidebar() {
       </div>
       <div
         className="react-flow__node-default"
-        onDragStart={(event: DragEvent) => onDragStart(event, 'default')}
+        onDragStart={(event: DragEvent) => onDragStart(event, 'weibullNode')}
         draggable
       >
-        Default Node
+        Weibull Node
       </div>
       <div
         className="react-flow__node-output"

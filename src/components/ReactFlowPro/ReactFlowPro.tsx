@@ -31,24 +31,24 @@ const nodeTypes = {
 };
 
 const initialNodes: Node[] = [
-  {
-    id: '1',
-    type: 'input',
-    data: { label: 'input node' },
-    position: { x: 500, y: 40 },
-  },
-  {
-    id: '2',
-    type: 'default',
-    data: { label: 'default node' },
-    position: { x: 600, y: 100 },
-  },
-  {
-    id: '4',
-    type: 'weibullNode',
-    data: { label: 'Weibull Node' },
-    position: { x: 300, y: 75 },
-  },
+  // {
+  //   id: '1',
+  //   type: 'input',
+  //   data: { label: 'input node' },
+  //   position: { x: 500, y: 40 },
+  // },
+  // {
+  //   id: '2',
+  //   type: 'default',
+  //   data: { label: 'default node' },
+  //   position: { x: 600, y: 100 },
+  // },
+  // {
+  //   id: '4',
+  //   type: 'weibullNode',
+  //   data: { label: 'Weibull Node' },
+  //   position: { x: 300, y: 75 },
+  // },
 ];
 
 const onDragOver = (event: DragEvent) => {
